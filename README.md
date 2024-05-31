@@ -1,4 +1,3 @@
 
 # Final Project
-
-Click the live share button in the bottom left to open live preview.
+https://miniature-spork-49gq969qwj5c9qr-3000.app.github.dev/

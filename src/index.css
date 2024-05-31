@@ -50,7 +50,7 @@ body {
 #products-list {
 	max-width: 25rem;
 	margin: 2rem auto;
-		text-decoration: none;
+	text-decoration: none;
 	color: inherit;
 }
 
@@ -205,10 +205,10 @@ canvas {
 .product-list {
 	display: flex;
 	gap: 20px;
-	 margin: auto;
-    max-width: 90vw;
-    justify-content: space-between;
-    
+	margin: auto;
+	max-width: 90vw;
+	justify-content: space-between;
+
 }
 
 .product-card {
@@ -332,12 +332,15 @@ main {
 }
 
 
-h1, h2, h3, p {
-    margin: 1rem auto;
+h1,
+h2,
+h3,
+p {
+	margin: 1rem auto;
 }
 
 .addToCartBtn {
-		position: relative;
+	position: relative;
 	padding: 0.5rem 1rem;
 	background-color: #7300ff;
 	color: white;
