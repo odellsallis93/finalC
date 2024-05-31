@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from '../contexts/ProductsContext';
 
-/* Set the dynamic url parameter "productID" for the Route path matching "/products/:productID" to `${product.id}` */
 export default function AllProducts() {
         const { products, isLoading, refetchProducts } = useContext(ProductContext);
         const [productList, setProductList] = useState([])
