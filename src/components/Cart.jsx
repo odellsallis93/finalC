@@ -14,10 +14,10 @@ export default function Cart() {
                         <h2>Your Cart</h2>
                         {cartState.items.length === 0 && <p>No items in the cart.</p>}
                         <ul>
-                                {cartState.items.map((item) => (
-                                        <li key={item.id}>
+                                {cartState.items.map((item, index) => (
+                                        <li key={index}>
                                                 {item.name} - ${item.price.toFixed(2)}
-                                                <button onClick={() => handleRemove(item.id)}>Remove</button>
+                                                <button onClick={() => handleRemove(item.index)}>Remove</button>
                                         </li>
                                 ))}
                         </ul>
