@@ -40,6 +40,7 @@ export default function Details(props) {
         }, []);
 
         const addItemToCart = () => {
+                
                 addToCart(product);
         };
 

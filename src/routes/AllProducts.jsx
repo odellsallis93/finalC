@@ -28,7 +28,7 @@ export default function AllProducts() {
                                                                 <Link to={`/products/${product.id}`}>
                                                                         <img src={`${product.image}.jpg`} alt={product.name} />
                                                                         <p>{product.name}</p>
-                                                                        <p>${product.price}</p>
+                                                                        <p>${product?.price}</p>
                                                                 </Link>
                                                         </div>
                                                 ))}
