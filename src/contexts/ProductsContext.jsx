@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useCallback } from "react";
-
+import { productList } from "../data/productList";
 export const ProductContext = createContext({
   products: [],
   isLoading: false,
@@ -27,11 +27,7 @@ export const ProductContextProvider = ({ children }) => {
 
   useEffect(() => {
     console.log("First data fetched");
-    fetch(`./products.json`)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-      });
+    setProducts(productList);
   }, []);
 
   return (

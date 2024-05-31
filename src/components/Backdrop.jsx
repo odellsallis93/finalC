@@ -8,7 +8,7 @@ const Backdrop = () => {
 
   return (
     <AccumulativeShadows
-      color="#e26085"
+      color="transparent"
       ref={shadows}
       temporal
       frames={60}

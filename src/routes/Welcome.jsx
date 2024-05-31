@@ -12,14 +12,13 @@ function NewCanvas() {
   return (
     <Canvas
       shadows
-      camera={{ position: [0, 0, 0], fov: 25 }}
+      camera={{ position: [0, 0, 2], fov: 25 }}
       gl={{ preserveDrawingBuffer: false }}
       className="canvas w-full max-w-full h-full"
     >
       <ambientLight intensity={0.5} />
       <Environment preset="apartment" />
       <CameraRig>
-        <Backdrop />
         <Center>
           <Model />
         </Center>
@@ -62,8 +61,8 @@ function HeroSection() {
       <div className="content-container">
         <h2>Welcome to our shop!</h2>
         <p>
-          Please explore <Link to="/products">our products</Link> or share this
-          site with others.
+          Check out <Link to="/products">our products</Link> or share this site
+          with others.
         </p>
       </div>
     </div>
