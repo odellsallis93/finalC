@@ -6,15 +6,12 @@ import { appRoutes } from './routes/routes';
 
 export default function App() {
   const { products, isLoading, refetchProducts } = useContext(ProductContext);
-  const [fetchCount, setFetchCount] = useState(0)
   const [productList, setProductList] = useState([])
-
 
   useEffect(() => {
     fetch(`./products.json`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Data called from app", data)
         setProductList(data)
       })
   }, []);
