@@ -5,11 +5,10 @@ import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
 import { Html, Decal, useGLTF, useTexture, Center, Environment } from '@react-three/drei';
 import Backdrop from '../components/Backdrop';
-import './hero.css';
+
 import CameraRig from '../components/CameraRig';
 import state from '../store';
 
-// Carousel Component
 function Carousel() {
         return (
                 <Canvas
@@ -35,25 +34,8 @@ export const Model = () => {
         const [activeIndex, setActiveIndex] = useState(0);
 
         const items = [
-                `./shirt_baked.glb`,
-                `./shirt_baked.glb`,
+                `./shirt.glb`,
         ];
-
-        useEffect(() => {
-                const callItself = async () => {
-                        const interval = await setInterval(() => {
-                                if (activeIndex === 0) {
-                                        setActiveIndex(1);
-                                        callItself()
-                                } else {
-                                        setActiveIndex(0);
-                                        callItself()
-                                }
-                        }, 1000);
-                        return () => clearInterval(interval);
-                }
-                callItself()
-        }, []);
 
         const { nodes, materials } = useGLTF(items[activeIndex]);
 
@@ -74,7 +56,6 @@ export const Model = () => {
         )
 }
 
-// Hero Section Component
 function HeroSection() {
         return (
                 <div className="hero-section">
@@ -90,6 +71,7 @@ function HeroSection() {
                 </div>
         );
 }
+
 export default function Welcome() {
         return (
                 <HeroSection />

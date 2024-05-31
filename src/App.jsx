@@ -2,13 +2,12 @@ import React, { Suspense, lazy, useEffect, useContext, useState, useCallback } f
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductContext, ProductContextProvider } from './contexts/ProductsContext';
 import Root from './routes/Root';
-import Navigation from './components/Navigation';
 import { appRoutes } from './routes/routes';
 
 export default function App() {
   const { products, isLoading, refetchProducts } = useContext(ProductContext);
   const [fetchCount, setFetchCount] = useState(0)
-  const [productsList, setProductsList] = useState([])
+  const [productList, setProductList] = useState([])
 
 
   useEffect(() => {
@@ -34,8 +33,8 @@ export default function App() {
                     index={route.index}
                     element={
                       <route.component
-                        productsList={productsList}
-                        setProductsList={setProductsList}
+                        productsArr={productList}
+                        setProductsArr={setProductList}
                       />}
                   />
                 )

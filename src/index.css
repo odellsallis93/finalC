@@ -120,7 +120,7 @@ a {
 	top: 0;
 	left: 0;
 	position: relative;
-	font: 700 2.5rem Roboto;
+	font: 800 2.5rem Roboto;
 }
 
 #root {
@@ -197,7 +197,7 @@ canvas {
 }
 
 .section h2 {
-	font-size: 20px;
+	font-size: 1.9rem;
 	font-weight: bold;
 	margin-bottom: 20px;
 }

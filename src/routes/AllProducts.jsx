@@ -5,7 +5,6 @@ import { ProductContext } from '../contexts/ProductsContext';
 /* Set the dynamic url parameter "productID" for the Route path matching "/products/:productID" to `${product.id}` */
 export default function AllProducts() {
         const { products, isLoading, refetchProducts } = useContext(ProductContext);
-        const [fetchCount, setFetchCount] = useState(0)
         const [productList, setProductList] = useState([])
 
         useEffect(() => {
@@ -29,7 +28,7 @@ export default function AllProducts() {
                                                                 <Link to={`/products/${product.id}`}>
                                                                         <img src={`${product.image}.jpg`} alt={product.name} />
                                                                         <p>{product.name}</p>
-                                                                        <p>₹ {product.price}</p>
+                                                                        <p>${product.price}</p>
                                                                 </Link>
                                                         </div>
                                                 ))}

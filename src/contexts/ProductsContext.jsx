@@ -11,30 +11,26 @@ export const ProductContextProvider = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [fetchCount, setFetchCount] = useState(0)
 
-	// Fetch data from local json file
+	// Fetch data from local json
 	const refetchProducts = useCallback(async () => {
 			try {
 				const response = await fetch(`./products.json`)
 				const data = await response.json()
-				console.log("Data", data)
 				setProducts(data)
 				return data
 			} catch (error) {
 				console.error("Error fetching products:", error)
 			} finally {
-				console.log("finally called");
 				setIsLoading(false)
-				console.log("loading is", isLoading)
 			}
 		}, []);
 
 	const fetchProductList = () => {
-		console.log("refetching");
 			if (products.length > 0) {
 				const fetchProducts = async () => {
 					const response = await fetch('products.json')
 					const data = await response.json()
-					console.log("Data2", data)
+		
 				}
 				fetchProducts()
 			}
