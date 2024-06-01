@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import React, { Suspense, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { easing } from "maath";
@@ -8,7 +8,7 @@ import Backdrop from "../components/Backdrop";
 import CameraRig from "../components/CameraRig";
 import state from "../store";
 
-function NewCanvas() {
+function ModelCanvas() {
   return (
     <Canvas
       shadows
@@ -19,6 +19,7 @@ function NewCanvas() {
       <ambientLight intensity={0.5} />
       <Environment preset="apartment" />
       <CameraRig>
+        <Backdrop />
         <Center>
           <Model />
         </Center>
@@ -29,7 +30,6 @@ function NewCanvas() {
 
 export const Model = () => {
   const snap = useSnapshot(state);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const { nodes, materials } = useGLTF(`./shirt.glb`);
 
@@ -56,7 +56,7 @@ function HeroSection() {
   return (
     <div className="hero-section">
       <div className="carousel-container">
-        <NewCanvas />
+        <ModelCanvas />
       </div>
       <div className="content-container">
         <h2>Welcome to our shop!</h2>
@@ -70,5 +70,20 @@ function HeroSection() {
 }
 
 export default function Welcome() {
-  return <HeroSection />;
+  const navigate = useNavigate();
+
+  const goToProducts = () => {
+    navigate('/products');
+  };
+
+  return (
+    <>
+      <HeroSection />
+      <div className='heroBtnWrapper' >
+        <button className="mdBtn" onClick={goToProducts}>
+          View All Products
+        </button>
+      </div>
+    </>
+  )
 }

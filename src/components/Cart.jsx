@@ -12,12 +12,12 @@ export default function Cart() {
         return (
                 <div className="cart">
                         <h2>Your Cart</h2>
-                        {cartState.items.length === 0 && <p>No items in the cart.</p>}
-                        <ul>
+                        {cartState != null && cartState.items.length === 0 && <p>No items in the cart.</p>}
+                        <ul className="cart-list">
                                 {cartState.items.map((item, index) => (
                                         <li key={item.id + index}>
                                                 {item.name} - ${item.price.toFixed(2)}
-                                                <button onClick={(e) => {
+                                                <button className="smBtn" onClick={(e) => {
                                                         e.stopPropagation()
                                                         e.preventDefault()
                                                         handleRemove(item.id)

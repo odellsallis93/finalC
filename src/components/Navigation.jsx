@@ -6,10 +6,10 @@ export default function Navigation() {
                 <div id="main-nav">
                         <nav>
                                 <ul>
-                                        <li>
+                                        <li className="homeNavBtn">
                                                 <NavLink
                                                         to="/"
-                                                        className={({ isActive }) => (isActive ? 'active' : '')}
+                                                        className={({ isActive }) => (isActive ? 'active homeActive' : '')}
                                                 >
                                                         Home
                                                 </NavLink>

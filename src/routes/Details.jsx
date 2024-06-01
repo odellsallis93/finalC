@@ -12,21 +12,7 @@ export default function Details(props) {
   const { products, isLoading } = useContext(ProductContext);
   const getDataFallback = products.find((item) => item.id === params.id);
   const [product, setProduct] = useState(getDataFallback);
-
-  /*   const handleProductArrFall = products.map((section) => {
-    return section.items.find((item) => item.id === params.id);
-  });
-
-  const handleProductArr = () => {
-    productList.map((section) => {
-      return section.items.find((item) => item.id === params.id);
-    });
-  }; */
-
-  /*   const dataFromContext = handleProductArrFall.find(
-    (item) => item.id === params.id,
-  ); */
-
+  
   const getProduct = () => {
     setProduct(getDataFallback);
   };

@@ -22,11 +22,16 @@ function cartReducer(state, action) {
                                 totalAmount: updatedTotalAmount,
                         };
                 case REMOVE_FROM_CART:
-                        const filteredItems = state.items.filter(item => item.id !== action.id);
-                        const itemToRemove = state.items.find(item => item.id === action.id);
+                        const itemIndex = state.items.findIndex(item => item.id === action.id);
+                        if (itemIndex === -1) return state; // If the item is not found, return the current state
+
+                        // Create a copy of the items array without the specific item to remove
+                        const newItems = [...state.items];
+                        const itemToRemove = newItems[itemIndex];
+                        newItems.splice(itemIndex, 1);
                         const newTotalAmount = state.totalAmount - itemToRemove.price;
                         return {
-                                items: filteredItems,
+                                items: newItems,
                                 totalAmount: newTotalAmount,
                         };
                 default:

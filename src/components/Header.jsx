@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
-import Cart from './Cart';
+import {CartContext} from "../contexts/CartContext";
+import Cart from "./Cart";
+import {useContext} from "react";
 
 export const Header = () => {
+        const { cartState, removeFromCart } = useContext(CartContext);
         const [isModalOpen, setIsModalOpen] = useState(false);
 
         const toggleModal = () => {
@@ -16,7 +19,7 @@ export const Header = () => {
                         </div>
                         <Navigation />
                         <button className="cart-button" onClick={toggleModal}>
-                                Cart
+                                Cart <span style={{ color: 'red' }}>({cartState.items.length})</span>
                         </button>
                         {isModalOpen && (
                                 <div className="modal-overlay" onClick={toggleModal}>
